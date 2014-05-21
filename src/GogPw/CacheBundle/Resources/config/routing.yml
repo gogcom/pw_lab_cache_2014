@@ -5,3 +5,7 @@ gog_pw_cache_homepage:
 nocache:
     pattern: /nocache
     defaults: { _controller: GogPwCacheBundle:Cache:nocache }
+
+memcache:
+    pattern: /memcache
+    defaults: { _controller: GogPwCacheBundle:Cache:memcache }
