@@ -17,3 +17,12 @@ xcache:
 varnish:
     pattern: /varnish
     defaults: { _controller: GogPwCacheBundle:Cache:varnish }
+
+esi:
+    pattern:  /esi
+    defaults: { _controller: GogPwCacheBundle:Cache:esi }
+
+esi_include:
+    pattern:  /esi_include
+    defaults: { _controller: GogPwCacheBundle:Cache:esiInclude }
+

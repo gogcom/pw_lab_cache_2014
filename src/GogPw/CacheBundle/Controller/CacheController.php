@@ -36,6 +36,18 @@ class CacheController extends Controller
         return new Response($response);
     }
 
+    public function esiIncludeAction()
+    {
+        sleep(self::SLEEP_TIME);
+        return new Response('esi include internal code.');
+    }
+
+    public function esiAction()
+    {
+        $response = $this->render('GogPwCacheBundle:Esi:esi.html.twig');
+        return $response;
+    }
+
     private function getResponseFromMemcache()
     {
         $cacheService = $this->container->get('memcache.default');
