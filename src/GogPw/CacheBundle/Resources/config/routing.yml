@@ -9,3 +9,7 @@ nocache:
 memcache:
     pattern: /memcache
     defaults: { _controller: GogPwCacheBundle:Cache:memcache }
+
+xcache:
+    pattern: /xcache
+    defaults: { _controller: GogPwCacheBundle:Cache:xcache }

@@ -10,6 +10,7 @@ class CacheController extends Controller
 
     const SLEEP_TIME = 3;
     const MEMCACHE_TTL = 5;
+    const XCACHE_TTL = 8;
 
     public function nocacheAction()
     {
@@ -23,6 +24,12 @@ class CacheController extends Controller
         return new Response($response);
     }
 
+    public function xcacheAction()
+    {
+        $response = $this->getResponseFromXcache();
+        return new Response($response);
+    }
+
     private function getResponseFromMemcache()
     {
         $cacheService = $this->container->get('memcache.default');
@@ -32,6 +39,19 @@ class CacheController extends Controller
             $cacheService->set('memcache_key', $response, self::MEMCACHE_TTL);   
         } else {
             syslog(5, 'Fetched response using memcache.');
+        }
+    
+        return $response;
+    }
+
+    private function getResponseFromXcache()
+    {
+        if (!$response = xcache_get('xcache_key')) {
+            $response = $this->getResponse();
+            syslog(5, 'Caching response using xcache.');
+            xcache_set('xcache_key',$response, self::XCACHE_TTL);
+        } else {
+            syslog(5, 'Fetched response using xcache.');
         }
     
         return $response;
