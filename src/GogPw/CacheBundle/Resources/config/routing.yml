@@ -1,0 +1,7 @@
+gog_pw_cache_homepage:
+    pattern:  /hello/{name}
+    defaults: { _controller: GogPwCacheBundle:Default:index }
+
+nocache:
+    pattern: /nocache
+    defaults: { _controller: GogPwCacheBundle:Cache:nocache }

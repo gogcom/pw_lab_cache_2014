@@ -1,0 +1,7 @@
+parameters:
+#    gog_pw_cache.example.class: GogPw\CacheBundle\Example
+
+services:
+#    gog_pw_cache.example:
+#        class: %gog_pw_cache.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

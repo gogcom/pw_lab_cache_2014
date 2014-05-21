@@ -1,0 +1,4 @@
+gog_pw_cache:
+    resource: "@GogPwCacheBundle/Resources/config/routing.yml"
+    prefix:   /
+
