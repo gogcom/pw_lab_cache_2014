@@ -30,6 +30,12 @@ class CacheController extends Controller
         return new Response($response);
     }
 
+    public function varnishAction()
+    {
+        $response = $this->getResponse();
+        return new Response($response);
+    }
+
     private function getResponseFromMemcache()
     {
         $cacheService = $this->container->get('memcache.default');
